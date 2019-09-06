@@ -1,16 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Comments from './CommentDetail'
 
-function getTime() {
-  return ( new Date()).toLocaleDateString();
-}
-  const App = () => {
-    return (
-    <div>
-      <div>Current Time</div>
-      <h3>{getTime()}</h3>
-    </div>
-    )
+  class App extends Component{
+    state = {
+      Hello: 'Will title'
+    }
+    changeWill = (newTitle) => {
+      this.setState({title:newTitle})
+    }
+
+
+    render(){
+      return(
+        <div>
+        <Comments hey={this.changeWill.bind(this, 'iWillChange')} title={this.state.title}/>
+        </div>
+      )
+    }
   }
+  
 export default App;
